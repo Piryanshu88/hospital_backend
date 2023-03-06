@@ -2,6 +2,12 @@ const express = require("express");
 const { connect } = require("./config/db");
 const { HospitalRouter } = require("./routes/Hospital.route");
 const app = express();
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use("/", HospitalRouter);
 require("dotenv").config();
